@@ -1,0 +1,25 @@
+﻿@using DemoToDoApp.Shared
+@page "/todoes"
+@inject HttpClient Http
+@inherits ToDoesViewModel
+
+<h1>ToDo-List</h1>
+
+@if (todoes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row mb-3">
+        <a href="/CreateToDo" class="btn btn-primary btn-sm">Neu</a>        
+    </div>
+    <div class="row">
+        @foreach (ToDo myItem in todoes)
+        {
+            <ToDoItem CurrentToDo="@myItem" />
+        }
+    </div>
+}
+
+

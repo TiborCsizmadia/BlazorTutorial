@@ -1,0 +1,27 @@
+﻿@using DemoToDoApp.Shared
+@page "/DeleteToDo/{ID}"
+@inject HttpClient Http
+@inherits DeleteToDoViewModel
+
+<h1>Delete-ToDo</h1>
+
+<form>
+    <div class="form-group">
+        <label for="ToDoTitel">Titel</label>
+        <span class="form-control">@DataItem.Title</span>
+    </div>
+    <div class="form-group">
+        <label for="ToDoDate">Datum</label>
+        <span class="form-control">@DataItem.Date.ToString("dd.MM.yyyy")</span>               
+    </div>
+    <div class="form-group">
+        <label for="ToDoDescription">Beschreibung</label>
+        <span class="form-control">
+            @DataItem.Description
+        </span>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="@DeleteToDo">löschen</button>
+</form>
+@functions{
+
+}

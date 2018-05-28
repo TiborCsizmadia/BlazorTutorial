@@ -1,0 +1,32 @@
+﻿@using DemoToDoApp.Shared
+@page "/CreateToDo"
+@inject HttpClient Http
+@inherits CreateToDoViewModel
+
+<h1>Create-ToDo</h1>
+
+<form>
+    <div class="form-group">
+        <label for="ToDoTitel">Titel</label>
+        <input type="text" class="form-control" id="ToDoTitel" 
+               bind="@DataItem.Title"
+               placeholder="Bitte ToDo-Titel eingeben" />        
+    </div>
+    <div class="form-group">
+        <label for="ToDoDate">Datum</label>
+        <input class="form-control" style="width:150px"
+               id="ToDoDate"
+               bind="@DataItem.Date" format-value="dd.MM.yyyy"
+               placeholder="Bitte ToDo-Datum eingeben" />
+    </div>
+    <div class="form-group">
+        <label for="ToDoDescription">Beschreibung</label>
+        <textarea rows="10" id="ToDoDescription" 
+                  class="form-control"
+                  onchange="@((UIChangeEventArgs __e) => DataItem.Description = __e.Value.ToString())">@DataItem.Description</textarea>        
+    </div>
+    <button type="button" class="btn btn-primary" onclick="@CreateToDo">Create</button>
+</form>
+@functions{
+
+}

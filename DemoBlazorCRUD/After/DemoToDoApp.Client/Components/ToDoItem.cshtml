@@ -1,0 +1,22 @@
+﻿@using DemoToDoApp.Shared
+@inject HttpClient Http
+
+
+<div class="card bg-light m-3" style="width: 18rem;">
+    <div class="card-header">
+        @CurrentToDo.Date.ToString("dd.MM.yyyy")
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@CurrentToDo.ToString()</h5>
+        <p class="card-text">@CurrentToDo.Description</p>
+        <a href="/EditToDo/@CurrentToDo.ID" class="btn btn-primary btn-sm">Edit</a>
+        <a href="/DeleteToDo/@CurrentToDo.ID" class="btn btn-primary btn-sm">Delete</a>
+    </div>
+</div>
+
+@functions {
+
+[Parameter]
+private ToDo CurrentToDo { get; set; }
+
+}
